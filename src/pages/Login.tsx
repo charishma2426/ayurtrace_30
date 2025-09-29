@@ -133,21 +133,36 @@ export default function Login() {
       </div>
 
       {/* Right side - Login Form */}
-      <div className="flex-1 flex items-center justify-center p-8 bg-secondary/30">
-        <div className="w-full max-w-md space-y-8">
+      <div className="flex-1 flex items-center justify-center p-8 bg-secondary/30 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-primary-light rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-3/4 left-1/3 w-16 h-16 bg-primary-dark rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="w-full max-w-md space-y-8 relative z-10 animate-fade-in">
           <div className="text-center">
-            <div className="mx-auto h-16 w-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
-              <Icon className="h-8 w-8 text-white" />
+            <div className="mx-auto h-20 w-20 bg-gradient-primary rounded-full flex items-center justify-center mb-6 shadow-botanical hover-scale animate-scale-in relative">
+              <div className="absolute inset-0 bg-gradient-primary rounded-full animate-pulse opacity-75"></div>
+              <Icon className="h-10 w-10 text-white relative z-10" />
+              <div className="absolute inset-0 rounded-full bg-white/20 animate-ping"></div>
             </div>
-            <h2 className="text-2xl font-bold text-foreground">
+            <h2 className="text-3xl font-bold text-foreground mb-3 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               {selectedRoleConfig.title}
             </h2>
-            <p className="text-muted-foreground mt-2">
+            <p className="text-muted-foreground text-lg animate-fade-in" style={{ animationDelay: '0.4s' }}>
               {selectedRoleConfig.description}
             </p>
+            <div className="mt-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
+                <div className="w-2 h-2 bg-success rounded-full mr-2 animate-pulse"></div>
+                Secure Blockchain Access
+              </div>
+            </div>
           </div>
 
-          <Card className="shadow-botanical">
+          <Card className="shadow-botanical hover:shadow-lg transition-all duration-300 border-2 border-primary/10 hover:border-primary/20 animate-scale-in bg-gradient-to-br from-background to-secondary/20" style={{ animationDelay: '0.8s' }}>
             <CardHeader>
               <CardTitle className="text-center">Sign In</CardTitle>
               <CardDescription className="text-center">
